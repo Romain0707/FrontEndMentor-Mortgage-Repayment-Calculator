@@ -13,47 +13,48 @@
       <div class="p-6 md:p-10 md:w-full md:max-w-[505px] md:flex-[0_0_1]">
         <div class="md:flex md:justify-between md:items-center md:mb-6 mb-[22px]">
           <h1 class="text-2xl font-bold text-slate-900 mb-2">Mortgage Calculator</h1>
-          <p class="text-slate-700 underline hover:cursor-pointer">Clear All</p>
+          <p class="text-slate-700 underline hover:cursor-pointer" id="clear-all">Clear All</p>
         </div>
         <form>
           <label for="mortgage-amount" class="hover:cursor-pointer flex flex-col gap-2.5 mb-6 relative">
             <label for="mortgage-amount" class="text-slate-700">Mortgage Amount</label>
-            <input type="number" id="mortgage-amount" class=" pl-[60px] focus:outline-0 focus:border-lime peer/mortamount border border-slate-700 rounded-sm h-12 text-slate-900 font-bold">
+            <input type="text" id="mortgage-amount" class="hover:cursor-pointer pl-[60px] focus:outline-0 focus:border-lime peer/mortamount border border-slate-700 rounded-sm h-12 text-slate-900 font-bold">
             <p class="absolute bg-slate-100 flex peer-focus/mortamount:bg-lime text-slate-700 font-bold h-[46px] items-center justify-center top-[35px] left-px rounded-l-sm w-11">£</p>
-            <p class="hidden text-red">This field is required</p>
+            <p class="hidden text-red field-alert">This field is required</p>
           </label>
           <div class="md:flex md:gap-6">
             <label for="mortgage-term" class="hover:cursor-pointer flex flex-col gap-2.5 mb-6 relative md:w-[calc(50%-12px)] box-border">
               <label for="mortgage-term" class="text-slate-700">Mortgage Term</label>
-              <input type="number" id="mortgage-term" class=" pl-[17px] pr-20 focus:outline-0 border border-slate-700 rounded-sm h-12 text-slate-900 font-bold focus:border-lime peer/mortterm">
+              <input type="text" id="mortgage-term" class="hover:cursor-pointer pl-[17px] pr-20 focus:outline-0 border border-slate-700 rounded-sm h-12 text-slate-900 font-bold focus:border-lime peer/mortterm">
               <p class="absolute bg-slate-100 flex text-slate-700 font-bold h-[46px] items-center justify-center top-[35px] right-px rounded-r-sm w-20 peer-focus/mortterm:bg-lime">years</p>
-              <p class="hidden text-red">This field is required</p>
+              <p class="hidden text-red field-alert">This field is required</p>
             </label>
             <label for="interest-rate" class="hover:cursor-pointer flex flex-col gap-2.5 mb-6 relative md:w-[calc(50%-12px)] box-border">
               <label for="interest-rate" class="text-slate-700">Interest Rate</label>
-              <input type="number" id="interest-rate" class=" pl-[17px] pr-[51px] focus:outline-0 border border-slate-700 rounded-sm h-12 text-slate-900 font-bold focus:border-lime peer/mortinterest">
+              <input type="text" id="interest-rate" class="hover:cursor-pointer pl-[17px] pr-[51px] focus:outline-0 border border-slate-700 rounded-sm h-12 text-slate-900 font-bold focus:border-lime peer/mortinterest">
               <p class="absolute bg-slate-100 flex text-slate-700 font-bold h-[46px] items-center justify-center top-[35px] right-px rounded-r-sm w-[51px] peer-focus/mortinterest:bg-lime">%</p>
-              <p class="hidden text-red">This field is required</p>
+              <p class="hidden text-red field-alert">This field is required</p>
             </label>
           </div>
-          <div>
+          <div class="mb-[22px] md:mb-[38px]">
             <div class="mb-2">
               <label class="text-slate-700">Mortgage Type</label>
             </div>
             <label for="repayment" id="repayment-label" class="hover:cursor-pointer relative border border-slate-700 rounded-sm h-12 flex items-center mb-2.5">
-              <input type="radio" name="mortgage-type" onclick="validate()" id="repayment" class="appearance-none h-4.5 w-4.5 rounded-[50%] border-2 border-slate-700 mx-4.5 peer/repayment checked:border-lime">
-              <div class="hidden peer-checked/repayment:block absolute h-2.5 w-2.5 bg-lime left-[22px] rounded-[50%]"></div>
-              <label for="repayment" class="text-slate-900 font-bold">Repayment</label>
+              <input type="radio" name="mortgage-type" onclick="validate()" id="repayment" class="hover:cursor-pointer appearance-none h-4.5 w-4.5 rounded-[50%] border-2 border-slate-700 mx-4.5 peer/repayment checked:border-lime">
+              <div class="hover:cursor-pointer hidden peer-checked/repayment:block absolute h-2.5 w-2.5 bg-lime left-[22px] rounded-[50%]"></div>
+              <label for="repayment" class="hover:cursor-pointer text-slate-900 font-bold">Repayment</label>
             </label>
-            <label for="interest" id="interest-label" class="hover:cursor-pointer relative border border-slate-700 rounded-sm h-12 flex items-center mb-[22px] md:mb-[38px]">
-              <input type="radio" name="mortgage-type" onclick="validate()" id="interest" class="appearance-none h-4.5 w-4.5 rounded-[50%] border-2 border-slate-700 mx-4.5 peer/interest checked:border-lime">
-              <div class="hidden peer-checked/interest:block absolute h-2.5 w-2.5 bg-lime left-[22px] rounded-[50%]"></div>
-              <label for="interest" class="text-slate-900 font-bold">Interest Only</label>
+            <label for="interest" id="interest-label" class="hover:cursor-pointer relative border border-slate-700 rounded-sm h-12 flex items-center">
+              <input type="radio" name="mortgage-type" onclick="validate()" id="interest" class="hover:cursor-pointer appearance-none h-4.5 w-4.5 rounded-[50%] border-2 border-slate-700 mx-4.5 peer/interest checked:border-lime">
+              <div class="hover:cursor-pointer hidden peer-checked/interest:block absolute h-2.5 w-2.5 bg-lime left-[22px] rounded-[50%]"></div>
+              <label for="interest" class="hover:cursor-pointer text-slate-900 font-bold">Interest Only</label>
             </label>
+            <p id="radio-alert" class="hidden text-red mt-2 field-alert">This field is required</p>
           </div>
-          <div id="calculate" class="relative bg-lime flex justify-center items-center gap-3 rounded-full h-[54px] max-w-[315px] md:mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class=""><path fill="#133041" d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"/></svg>
-            <input type="submit" value="Calculate Repayments" class="text-slate-900 font-bold">
+          <div id="calculate" class="hover:cursor-pointer relative bg-lime flex justify-center items-center gap-3 rounded-full h-[54px] max-w-[315px] md:mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="hover:cursor-pointer"><path fill="#133041" d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"/></svg>
+            <input type="submit" value="Calculate Repayments" class="hover:cursor-pointer text-slate-900 font-bold">
           </div>
         </form>
       </div>
